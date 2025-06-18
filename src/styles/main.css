@@ -43,20 +43,20 @@ html {
 body {
   background: var(--background-gradient);
   color: var(--foreground);
-  font-family: var(--font-aeonik), var(--font-geist), system-ui, sans-serif;
+  font-family: var(--font-poppins), system-ui, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-aeonik), var(--font-geist), system-ui, sans-serif;
+  font-family: var(--font-poppins), system-ui, sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
 
 h4, h5, h6 {
-  font-family: var(--font-aeonik), var(--font-geist), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 600;
   line-height: 1.2;
 }
 
