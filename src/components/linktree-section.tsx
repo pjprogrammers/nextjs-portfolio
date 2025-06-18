@@ -1,155 +1,126 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Github, Linkedin, Youtube, Twitter, Instagram, BookOpen, Server, Shield, Terminal, Laptop, ExternalLink } from "lucide-react";
-
-const links = [
-  {
-    id: 1,
-    title: "GitHub",
-    description: "Code repositories",
-    icon: <Github className="link-icon" />,
-    url: "https://github.com/pjcoder",
-    color: "rgba(33, 37, 41, 0.8)",
-  },
-  {
-    id: 2,
-    title: "LinkedIn",
-    description: "Professional network",
-    icon: <Linkedin className="link-icon" />,
-    url: "https://linkedin.com/in/pjcoder",
-    color: "rgba(10, 102, 194, 0.8)",
-  },
-  {
-    id: 3,
-    title: "Twitter (X)",
-    description: "Tech insights",
-    icon: <Twitter className="link-icon" />,
-    url: "https://twitter.com/pjcoder",
-    color: "rgba(29, 161, 242, 0.8)",
-  },
-  {
-    id: 4,
-    title: "YouTube",
-    description: "Tutorials & demos",
-    icon: <Youtube className="link-icon" />,
-    url: "https://youtube.com/@pjcoder",
-    color: "rgba(255, 0, 0, 0.8)",
-  },
-  {
-    id: 5,
-    title: "Instagram",
-    description: "Behind the scenes",
-    icon: <Instagram className="link-icon" />,
-    url: "https://instagram.com/pjcoder",
-    color: "rgba(195, 42, 163, 0.8)",
-  },
-  {
-    id: 6,
-    title: "TryHackMe",
-    description: "Security learning",
-    icon: <Shield className="link-icon" />,
-    url: "https://tryhackme.com/p/pjcoder",
-    color: "rgba(255, 25, 25, 0.8)",
-  },
-  {
-    id: 7,
-    title: "HackTheBox",
-    description: "Hacking challenges",
-    icon: <Terminal className="link-icon" />,
-    url: "https://app.hackthebox.com/profile/pjcoder",
-    color: "rgba(158, 234, 52, 0.8)",
-  },
-  {
-    id: 8,
-    title: "AWS Community",
-    description: "Cloud resources",
-    icon: <Server className="link-icon" />,
-    url: "https://aws.amazon.com/developer/community/pjcoder",
-    color: "rgba(255, 153, 0, 0.8)",
-  },
-  {
-    id: 9,
-    title: "Blog",
-    description: "Articles & insights",
-    icon: <BookOpen className="link-icon" />,
-    url: "https://medium.com/@pjcoder",
-    color: "rgba(15, 115, 115, 0.8)",
-  },
-];
+import { motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Github, Linkedin, Twitter, Globe, Mail, ExternalLink } from 'lucide-react';
 
 export default function LinkTreeSection() {
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
       },
-    },
-  };
+      { threshold: 0.2 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const links = [
+    {
+      title: 'GitHub',
+      description: 'Check out my code repositories and open-source contributions',
+      url: 'https://github.com/pjcoder',
+      icon: <Github size={24} />,
+      color: '#333',
+    },
+    {
+      title: 'LinkedIn',
+      description: 'Connect with me professionally and view my experience',
+      url: 'https://linkedin.com/in/pjcoder',
+      icon: <Linkedin size={24} />,
+      color: '#0077B5',
+    },
+    {
+      title: 'Twitter',
+      description: 'Follow me for the latest in cloud security and tech news',
+      url: 'https://twitter.com/pjcoder',
+      icon: <Twitter size={24} />,
+      color: '#1DA1F2',
+    },
+    {
+      title: 'Blog',
+      description: 'Read my articles on cloud security, cybersecurity, and more',
+      url: 'https://pjcoder-blog.com',
+      icon: <Globe size={24} />,
+      color: '#10b981',
+    },
+    {
+      title: 'Email',
+      description: 'Get in touch with me directly for inquiries and collaboration',
+      url: 'mailto:contact@pjcoder.com',
+      icon: <Mail size={24} />,
+      color: '#E94E77',
+    },
+    {
+      title: 'Resume',
+      description: 'View and download my professional resume',
+      url: '/resume.pdf',
+      icon: <ExternalLink size={24} />,
+      color: '#8b5cf6',
+    }
+  ];
 
   return (
-    <section id="links" className="linktree-section">
-      <div className="linktree-bg">
-        <div className="linktree-grid-pattern"></div>
-        <div className="linktree-gradient"></div>
-      </div>
-      
+    <section id="links" ref={sectionRef} className="section linktree-section">
       <div className="container">
-        <motion.div
+        <motion.div 
+          className="section-header"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="section-heading"
         >
-          <h2>
-            Connect <span className="accent">With Me</span>
-          </h2>
-          <div className="divider"></div>
-          <p>
-            Find me across the internet on these platforms
-          </p>
+          <h2 className="section-title gradient-text">Connect With Me</h2>
+          <p className="section-subtitle">Find me across the web and social platforms</p>
         </motion.div>
 
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="links-container"
-        >
-          {links.map((link) => (
-            <motion.div
-              key={link.id}
-              variants={cardVariants}
-              whileHover={{ scale: 1.03, y: -5 }}
-              className="link-card"
-              style={{
-                '--link-color': link.color,
-              } as React.CSSProperties}
+        <div className="linktree-grid">
+          {links.map((link, index) => (
+            <motion.div 
+              key={index}
+              className="linktree-card card-hover"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ 
+                y: -8,
+                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.15), 0 0 15px rgba(16, 185, 129, 0.2)', 
+                transition: { duration: 0.3 } 
+              }}
             >
-              <Link href={link.url} target="_blank" rel="noopener noreferrer" className="link-card-inner">
-                <div className="link-icon-container">
+              <Link href={link.url} target="_blank" rel="noopener noreferrer" className="linktree-link">
+                <div className="linktree-icon" style={{ color: link.color }}>
                   {link.icon}
+                  <div className="icon-ring" style={{ borderColor: link.color }}></div>
                 </div>
-                <div className="link-content">
-                  <div className="link-title">{link.title}</div>
-                  <div className="link-description">{link.description}</div>
+                <div className="linktree-content">
+                  <h3 className="linktree-title">{link.title}</h3>
+                  <p className="linktree-description">{link.description}</p>
                 </div>
-                <ExternalLink className="link-external-icon" />
+                <div className="linktree-arrow">
+                  <motion.div 
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ExternalLink size={18} />
+                  </motion.div>
+                </div>
               </Link>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

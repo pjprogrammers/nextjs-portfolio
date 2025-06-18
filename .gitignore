@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# VS Code settings
+.vscode/
+
+# Mac system files
+.AppleDouble
+.LSOverride
+
+# Logs folder
+logs/
+*.log
+
+# lock files (optional, in case you switch between managers)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

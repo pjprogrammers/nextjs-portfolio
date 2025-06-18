@@ -1,117 +1,212 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Shield, Globe } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-
-const projects = [
-  {
-    id: 1,
-    title: "Cloud Security Dashboard",
-    description: "An enterprise-grade dashboard monitoring cloud infrastructure security posture across AWS, Azure & GCP with real-time threat detection and compliance visualization.",
-    image: "/images/projects/cloud-dashboard.jpg",
-    tags: ["AWS", "Azure", "Security", "React", "Node.js"],
-    demoUrl: "https://cloud-security-dashboard.example.com",
-    repoUrl: "https://github.com/pjcoder/cloud-security-dashboard",
-    url: "cloud-security-dashboard.example.com",
-    bgGradient: "linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%)",
-    iconGradient: "linear-gradient(135deg, #10b981, #0ea5e9)",
-    icon: <Shield className="project-feature-icon" />
-  },
-  {
-    id: 2,
-    title: "Zero Trust Access Platform",
-    description: "A comprehensive zero-trust network solution providing fine-grained access control for cloud resources with advanced threat protection and identity verification.",
-    image: "/images/projects/zero-trust.jpg",
-    tags: ["Zero Trust", "Network Security", "Go", "Kubernetes"],
-    demoUrl: "https://ztna.example.com",
-    repoUrl: "https://github.com/pjcoder/zero-trust-access",
-    url: "ztna.example.com",
-    bgGradient: "linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%)",
-    iconGradient: "linear-gradient(135deg, #0ea5e9, #8b5cf6)",
-    icon: <Globe className="project-feature-icon" />
-  },
-];
+import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { ExternalLink, Code, ChevronRight, ChevronLeft } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProjectsSection() {
-  return (
-    <section id="projects" className="projects-section">
-      <div className="bg-blur bg-blur-1"></div>
-      <div className="bg-blur bg-blur-2"></div>
-      
-      <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="section-heading"
-        >
-          <h2>
-            Featured <span className="accent">Projects</span>
-          </h2>
-          <div className="divider"></div>
-          <p>
-            Explore my innovative work in cloud computing and cybersecurity
-          </p>
-        </motion.div>
+  const [activeProject, setActiveProject] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+  
+  const projects = [
+    {
+      title: "Cloud Security Platform",
+      description: "A comprehensive security platform for AWS and Azure cloud environments with real-time threat detection and automated remediation.",
+      tags: ["AWS", "Azure", "Python", "React", "Terraform"],
+      demoUrl: "https://github.com/username/cloud-security-platform",
+      repoUrl: "https://github.com/username/cloud-security-platform",
+      image: "/images/cybersecurity-bg.jpg"
+    },
+    {
+      title: "Network Vulnerability Scanner",
+      description: "An advanced network vulnerability scanner that identifies security risks and provides mitigation recommendations.",
+      tags: ["Python", "Docker", "JavaScript", "Security"],
+      demoUrl: "https://github.com/username/vulnerability-scanner",
+      repoUrl: "https://github.com/username/vulnerability-scanner",
+      image: "/images/cybersecurity-bg.jpg"
+    }
+  ];
+  
+  const nextProject = () => {
+    setActiveProject((prev) => (prev + 1) % projects.length);
+  };
+  
+  const prevProject = () => {
+    setActiveProject((prev) => (prev - 1 + projects.length) % projects.length);
+  };
 
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <motion.div 
-              key={project.id} 
-              className="project-card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: index * 0.2 }}
+  return (
+    <section id="projects" ref={sectionRef} className="section projects-section">
+      <div className="container">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.h2 
+            className="section-title gradient-text"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Featured Projects
+          </motion.h2>
+          <motion.p 
+            className="section-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            Showcasing my work in cloud computing and cybersecurity
+          </motion.p>
+        </motion.div>
+        
+        <div className="projects-container">
+          <motion.div 
+            className="project-navigation"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <motion.button 
+              onClick={prevProject} 
+              className="nav-button prev-button"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Previous project"
             >
-              <div className="project-feature" style={{ background: project.bgGradient }}>
-                <div className="project-feature-icon-wrapper" style={{ background: project.iconGradient }}>
-                  {project.icon}
-                </div>
-                <h3 className="gradient-text project-feature-title">{project.title}</h3>
+              <ChevronLeft />
+            </motion.button>
+            <div className="project-indicator">
+              {projects.map((_, index) => (
+                <motion.div
+                  key={index}
+                  className={`indicator-dot ${index === activeProject ? 'active' : ''}`}
+                  onClick={() => setActiveProject(index)}
+                  whileHover={{ scale: 1.2 }}
+                  animate={index === activeProject ? { scale: 1.2 } : { scale: 1 }}
+                />
+              ))}
+            </div>
+            <motion.button 
+              onClick={nextProject} 
+              className="nav-button next-button"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Next project"
+            >
+              <ChevronRight />
+            </motion.button>
+          </motion.div>
+          
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className={`project-card browser-mockup ${index === activeProject ? 'active' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView && index === activeProject ? 
+                { opacity: 1, y: 0 } : 
+                { opacity: 0, y: 20, display: index === activeProject ? 'block' : 'none' }
+              }
+              transition={{ duration: 0.5 }}
+              style={{
+                backgroundImage: `linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url(${project.image})`,
+              }}
+            >
+              <div className="browser-dots">
+                <span className="browser-dot"></span>
+                <span className="browser-dot"></span>
+                <span className="browser-dot"></span>
               </div>
-              
-              <div className="browser-mockup">
-                <div className="browser-bar">
-                  <div className="browser-circles">
-                    <div className="browser-circle"></div>
-                    <div className="browser-circle"></div>
-                    <div className="browser-circle"></div>
-                  </div>
-                  <div className="browser-address">{project.url}</div>
-                </div>
-                <div className="project-image-container">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={340}
-                    className="project-image"
-                  />
-                  <div className="project-overlay"></div>
-                </div>
-              </div>
-              
-              <div className="project-info">
-                <p className="project-description">{project.description}</p>
-                
-                <div className="project-tags">
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className="project-tag">{tag}</span>
+              <div className="project-content">
+                <motion.h3 
+                  className="project-title"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {project.title}
+                </motion.h3>
+                <motion.p 
+                  className="project-description"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {project.description}
+                </motion.p>
+                <motion.div 
+                  className="project-tags"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {project.tags.map((tag, i) => (
+                    <motion.span 
+                      key={i} 
+                      className="project-tag"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * i + 0.4 }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        backgroundColor: "var(--primary)",
+                        color: "var(--bg)"
+                      }}
+                    >
+                      {tag}
+                    </motion.span>
                   ))}
-                </div>
-                
-                <div className="project-links">
-                  <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary project-link-button">
-                    Live Demo <ExternalLink size={16} />
+                </motion.div>
+                <motion.div 
+                  className="project-links"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                    <motion.button
+                      className="project-link-button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ExternalLink size={18} />
+                      View Project
+                    </motion.button>
                   </Link>
-                  <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline project-link-button">
-                    Source <Github size={16} />
+                  <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                    <motion.button
+                      className="project-link-button secondary"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Code size={18} />
+                      Source Code
+                    </motion.button>
                   </Link>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
