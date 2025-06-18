@@ -1,0 +1,40 @@
+.logo-container {
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.logo-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo-shield {
+  color: var(--primary);
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.logo-code {
+  position: absolute;
+  color: var(--foreground);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Add these styles to welcome-screen.css */
+.welcome-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, rgba(10, 10, 10, 0) 70%),
+    linear-gradient(to right, rgba(30, 41, 59, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 41, 59, 0.1) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  opacity: 0.5;
+} 
