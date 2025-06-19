@@ -14,7 +14,7 @@
 
 ## 📄 Project Description
 
-This is a fully responsive and modern portfolio website designed and developed by **PJ**, built using **Next.js** and **pure CSS** without relying on any frameworks like Tailwind or Bootstrap. It's hosted on **Vercel** and demonstrates clean design, reusable components, mobile-first responsiveness, and ease of deployment.
+This is a fully responsive and modern portfolio website designed and developed by **PJ Programmers**, built using **Next.js** and **pure CSS** without relying on any frameworks like Tailwind or Bootstrap. It's hosted on **Vercel** and demonstrates clean design, reusable components, mobile-first responsiveness, and ease of deployment.
 
 ---
 
@@ -32,31 +32,43 @@ This is a fully responsive and modern portfolio website designed and developed b
 
 ### 🎀 Welcome Message
 
-![image](https://github.com/user-attachments/assets/22d57b08-0052-4e1b-95ef-042d923aea6e)
+![Welcome Message Screenshot](https://github.com/user-attachments/assets/6e443b2f-c507-4e05-ac7f-72c4648ddc34)
 
 ---
 
 ### 🏠 Home Page
 
-![Home Screenshot](https://via.placeholder.com/900x500?text=Paste+Home+Screenshot+Here)
-
-![image](https://github.com/user-attachments/assets/662b8832-4a35-40b9-83b0-ec92e9eb1cfe)
+![Home Screenshot](https://github.com/user-attachments/assets/37661107-1cbc-4e58-8c32-4003f447161b)
 
 ---
 
 ### 👤 About Section
 
-![About Screenshot](https://via.placeholder.com/900x500?text=Paste+About+Screenshot+Here)
+![About Screenshot](https://github.com/user-attachments/assets/4c63ca30-3d1c-478d-96cc-e56ce82b2249)
 
-![image](https://github.com/user-attachments/assets/a28d454a-016d-4afa-9c50-135a55a36cc3)
+---
+
+### 🌸 Featured Project
+
+![Featured Projects Screenshot](https://github.com/user-attachments/assets/942a83e9-b396-47d1-bbe0-f638d0d06146)
+
+---
+
+### 👩🏻‍💻 Skills Section
+
+![Skills Section Screenshot](https://github.com/user-attachments/assets/ae587385-0ef5-427c-889a-27877c0893eb)
+
+---
+
+### 👥 Connect With Me Section
+
+![Connect With Me Screenshot](https://github.com/user-attachments/assets/00a54256-bc97-475d-83a1-2eecbbdfc9ce)
 
 ---
 
 ### 📞 Contact Section
 
-![Contact Screenshot](https://via.placeholder.com/900x500?text=Paste+Contact+Screenshot+Here)
-
-![image](https://github.com/user-attachments/assets/44d41faa-bf2e-43cf-8847-1bace87b6b2c)
+![Contact Screenshot](https://github.com/user-attachments/assets/886ac607-ad38-4ee7-8b51-8fe5dd5fd360)
 
 ---
 
