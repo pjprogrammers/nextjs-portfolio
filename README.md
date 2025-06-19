@@ -1,4 +1,3 @@
-````md
 <h1 align="center">🌐 Next.js Portfolio Website</h1>
 
 <p align="center">
@@ -13,13 +12,19 @@
 
 ---
 
+## 📄 Project Description
+
+This is a fully responsive and modern portfolio website designed and developed by **PJ**, built using **Next.js** and **pure CSS** without relying on any frameworks like Tailwind or Bootstrap. It's hosted on **Vercel** and demonstrates clean design, reusable components, mobile-first responsiveness, and ease of deployment.
+
+---
+
 ## ✨ Features
 
-- ⚡ Built with **Next.js**
-- 🎨 Styled using only **vanilla CSS** – no Tailwind or Bootstrap!
-- 📱 100% **Responsive** on all screen sizes
-- 🚀 **Deployed** using Vercel CI/CD
-- 🌙 Dark mode ready (if added in future!)
+* ⚡ Built with **Next.js**
+* 🎨 Styled using only **vanilla CSS** – no Tailwind or Bootstrap!
+* 📱 100% **Responsive** on all screen sizes
+* 🚀 **Deployed** using Vercel CI/CD
+* 🌙 Dark mode ready (if added in future!)
 
 ---
 
@@ -29,31 +34,39 @@
 
 ![image](https://github.com/user-attachments/assets/22d57b08-0052-4e1b-95ef-042d923aea6e)
 
+---
 
 ### 🏠 Home Page
 
-![Home Screenshot](https://via.placeholder.com/900x500?text=Paste+Home+Screenshot+Here) ![image](https://github.com/user-attachments/assets/662b8832-4a35-40b9-83b0-ec92e9eb1cfe)
+![Home Screenshot](https://via.placeholder.com/900x500?text=Paste+Home+Screenshot+Here)
 
+![image](https://github.com/user-attachments/assets/662b8832-4a35-40b9-83b0-ec92e9eb1cfe)
+
+---
 
 ### 👤 About Section
 
-![About Screenshot](https://via.placeholder.com/900x500?text=Paste+About+Screenshot+Here) ![image](https://github.com/user-attachments/assets/a28d454a-016d-4afa-9c50-135a55a36cc3)
+![About Screenshot](https://via.placeholder.com/900x500?text=Paste+About+Screenshot+Here)
 
+![image](https://github.com/user-attachments/assets/a28d454a-016d-4afa-9c50-135a55a36cc3)
+
+---
 
 ### 📞 Contact Section
 
-![Contact Screenshot](https://via.placeholder.com/900x500?text=Paste+Contact+Screenshot+Here) ![image](https://github.com/user-attachments/assets/44d41faa-bf2e-43cf-8847-1bace87b6b2c)
+![Contact Screenshot](https://via.placeholder.com/900x500?text=Paste+Contact+Screenshot+Here)
 
+![image](https://github.com/user-attachments/assets/44d41faa-bf2e-43cf-8847-1bace87b6b2c)
 
 ---
 
 ## 🧰 Tech Stack
 
-| Tech | Description |
-|------|-------------|
+| Tech       | Description                                                |
+| ---------- | ---------------------------------------------------------- |
 | ⚙️ Next.js | React framework for building static & server-rendered apps |
-| 🎨 CSS | Custom responsive styling, no frameworks |
-| 🌍 Vercel | Fast, global deployment |
+| 🎨 CSS     | Custom responsive styling, no frameworks                   |
+| 🌍 Vercel  | Fast, global deployment                                    |
 
 ---
 
@@ -71,7 +84,7 @@ npm install --legacy-peer-deps --force
 
 # 3️⃣ Start the local development server
 npm run dev
-````
+```
 
 > 🔗 Open your browser and navigate to **[http://localhost:3000](http://localhost:3000)**
 
@@ -82,7 +95,7 @@ npm run dev
 Deployed using [Vercel](https://vercel.com).
 To deploy your own version:
 
-1. Push code to a GitHub repo 📤
+1. Push code to a GitHub repo 📄
 2. Go to [vercel.com/import](https://vercel.com/import)
 3. Select your repo & let Vercel auto-detect everything
 4. Hit **Deploy**! 🎉
@@ -106,13 +119,13 @@ nextjs-portfolio/
 
 ## 👨‍💻 Author
 
-* 🧑‍💻 **PJ** – [GitHub](https://github.com/pjprogrammers)
+* 👨‍💻 **PJ** – [GitHub](https://github.com/pjprogrammers)
 * 🌐 Portfolio – [https://pjcoders.vercel.app](https://pjcoders.vercel.app)
 * ✉️ Email – *(Add your email here if you want)*
 
 ---
 
-## 🪪 License
+## 🗪️ License
 
 This project is licensed under the **MIT License**.
 Feel free to fork, modify, and build your own awesome portfolio! 🚀
@@ -120,5 +133,3 @@ Feel free to fork, modify, and build your own awesome portfolio! 🚀
 ---
 
 > Made with ❤️ by [PJ](https://github.com/pjprogrammers)
-
-```
