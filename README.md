@@ -60,6 +60,10 @@ This is a fully responsive and modern portfolio website designed and developed b
 
 ---
 
+![Professional Approach Screenshot](https://github.com/user-attachments/assets/eacd0363-237f-4afa-851e-76be6fd7e176)
+
+---
+
 ### 👥 Connect With Me Section
 
 ![Connect With Me Screenshot](https://github.com/user-attachments/assets/00a54256-bc97-475d-83a1-2eecbbdfc9ce)
