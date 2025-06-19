@@ -136,8 +136,6 @@ nextjs-portfolio/
 ## 👨‍💻 Author
 
 * 👨‍💻 **PJ** – [GitHub](https://github.com/pjprogrammers)
-* 🌐 Portfolio – [https://pjcoders.vercel.app](https://pjcoders.vercel.app)
-* ✉️ Email – *(Add your email here if you want)*
 
 ---
 
